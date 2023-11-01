@@ -7,6 +7,7 @@ public class SummonEnemy : MonoBehaviour
     public bool canSummon;
     public float summonEnemySpeed;
     public GameObject Enemy;
+    public GameObject SummonPoint;
     // Update is called once per frame
     void Update()
     {
@@ -19,7 +20,7 @@ public class SummonEnemy : MonoBehaviour
     IEnumerator summonEnemy()
     {
         canSummon = false;
-        Instantiate (Enemy, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+        Instantiate (Enemy, new Vector3(SummonPoint.transform.position.x, SummonPoint.transform.position.y, SummonPoint.transform.position.z), transform.rotation);
         yield return new WaitForSeconds (summonEnemySpeed);
         canSummon = true;
     }

@@ -4,17 +4,39 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float maxHealth;
+    public float startHealth;
     public float currentHealth;
+    public float collisionDamage;
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = startHealth;
     }
-    void Update()
+
+    void OnCollisionEnter(Collision collision)
     {
-        new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f));
-        //new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        if (collision.gameObject.CompareTag("Base"))
+        {
+            // Get the Base.baseHealth component from the collided object
+            BaseHealth baseHealth = collision.gameObject.GetComponent<BaseHealth>();
+
+            if (baseHealth != null)
+            {
+                // Determine the amount of collision damage based on health
+                if (baseHealth.currentHealth <= currentHealth)
+                {
+                    collisionDamage = baseHealth.currentHealth;  
+                }
+                else
+                {
+                    collisionDamage = currentHealth;
+                }
+
+                // Apply damage to both player character and base
+                TakeDamage(collisionDamage);
+                baseHealth.TakeDamage(collisionDamage);
+            }
+        }
     }
 
     // Update is called once per frame

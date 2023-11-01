@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7240516235148101397}
   - component: {fileID: 6975627557512209579}
   - component: {fileID: 2696818975258469894}
-  - component: {fileID: 4634177810234579252}
+  - component: {fileID: 4241594413456922743}
   m_Layer: 0
   m_Name: ShootParticle
   m_TagString: Untagged
@@ -605,7 +605,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1000
+    maxNumParticles: 33346
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -671,9 +671,9 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 20}
+    m_Position: {x: 0, y: 0, z: 1667.3}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0, y: 0, z: 40}
+    m_Scale: {x: 0, y: 0, z: 3334.6}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -4829,7 +4829,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &4634177810234579252
+--- !u!114 &4241594413456922743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4838,7 +4838,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6925785536714310712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28d279a46b99d094ea991232c7d02c0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 360544d9ac163e04bb0d94e11ba26fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killtime: 1
+  LifeTime: 1

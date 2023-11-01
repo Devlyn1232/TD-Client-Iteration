@@ -24,12 +24,12 @@ public class TurretTargeting : MonoBehaviour
         if(EnemyInRange)
         {
             //send raycast to see im the enemy is able to be thit
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, EnemyLayerMask))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, EnemyLayerMask) && hit.collider.CompareTag("enemy"))
             {
                 if (CanAttack)
                 {
                     Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * Mathf.Infinity, Color.green);
-                    //starts the corotine
+                    // Start the coroutine
                     StartCoroutine(damageRaycast());
                 }
                 else
@@ -50,7 +50,7 @@ public class TurretTargeting : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = new Color(1,0,0,1f);
+        Gizmos.color = new Color(1,1,0,.3f);
         Gizmos.DrawWireSphere(transform.position, range);
     }
     Vector3 GetTargetPosition()

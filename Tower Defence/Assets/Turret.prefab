@@ -483,4 +483,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   EnemyCheck: {fileID: 6298663502285713572}
-  range: 999
+  range: 50
