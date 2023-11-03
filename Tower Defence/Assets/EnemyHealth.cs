@@ -7,10 +7,12 @@ public class EnemyHealth : MonoBehaviour
     public float startHealth;
     public float currentHealth;
     public float collisionDamage;
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = startHealth;
+        player = GameObject.FindWithTag("Player");
     }
 
     void OnCollisionEnter(Collision collision)
@@ -34,6 +36,8 @@ public class EnemyHealth : MonoBehaviour
 
                 // Apply damage to both player character and base
                 TakeDamage(collisionDamage);
+                
+                
                 baseHealth.TakeDamage(collisionDamage);
             }
         }
@@ -42,6 +46,8 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     public void TakeDamage(float damage)
     {
+        PlayerStats playerStats = player.gameObject.GetComponent<PlayerStats>();
+        playerStats.GainMoney(Mathf.RoundToInt(damage));
         currentHealth -= damage;
         if(currentHealth <= 0)
         {

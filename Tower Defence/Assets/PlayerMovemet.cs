@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float CrouchSpeed;
     public float Speed;
     public float gravity = -30f;
+    public float jumpHeight;
     private Vector3 velocity;
 
     public LayerMask groundMask; 
@@ -22,16 +23,24 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         controller = GetComponent<CharacterController>();
     }
     void Update()
     {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         Vector3 move = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
         controller.Move(move * Speed * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        if ((isGrounded))
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+        }
     }
 }
