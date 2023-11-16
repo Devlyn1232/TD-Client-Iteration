@@ -41,6 +41,32 @@ public class EnemyHealth : MonoBehaviour
                 baseHealth.TakeDamage(collisionDamage);
             }
         }
+        /*
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Get the Base.baseHealth component from the collided object
+            PlayerHealth baseHealth = collision.gameObject.GetComponent<PlayerHealth>();
+
+            if (baseHealth != null)
+            {
+                // Determine the amount of collision damage based on health
+                if (baseHealth.currentHealth <= currentHealth)
+                {
+                    collisionDamage = baseHealth.currentHealth;  
+                }
+                else
+                {
+                    collisionDamage = currentHealth;
+                }
+
+                // Apply damage to both player character and base
+                TakeDamage(collisionDamage);
+                
+                
+                baseHealth.TakeDamage(collisionDamage);
+            }
+        }
+        */
     }
 
     // Update is called once per frame
