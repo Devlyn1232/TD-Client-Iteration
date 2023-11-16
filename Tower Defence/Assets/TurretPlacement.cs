@@ -19,11 +19,6 @@ public class TurretPlacement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            
-        }
         // Check if 1 is being held down
         if (Input.GetKey("1"))
         {
@@ -40,12 +35,10 @@ public class TurretPlacement : MonoBehaviour
                 }
 
                 // When clicked summon real turret
-                PlayerStats playerStats = player.gameObject.GetComponent<PlayerStats>();
-                if (Input.GetKey("1") && Input.GetMouseButtonDown(0) && playerStats.Money >= 100)
+                if (Input.GetKey("1") && Input.GetMouseButtonDown(0))
                 {
                     Instantiate(turretPrefab, turretOverlay.transform.position, Quaternion.identity);
                     Destroy(turretOverlay);
-                    playerStats.GainMoney(-100);
                 }
             }
             else
